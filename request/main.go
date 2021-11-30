@@ -31,6 +31,7 @@ func main () {
 	sha := sha256.Sum256([]byte(body))
 	if *badHash {
 		sha[0] = sha[0] >> 4
+		sha[31] = sha[31] << 4
 	}
 	bodyHash := hex.EncodeToString(sha[:])
 
