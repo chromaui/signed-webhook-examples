@@ -1,4 +1,4 @@
-module github.com/jmhobbs/signed-webhook-example/request
+module github.com/jmhobbs/chromatic-signed-webhook-examples/request
 
 go 1.16
 

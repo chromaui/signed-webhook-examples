@@ -1,4 +1,4 @@
-module github.com/jmhobbs/signed-webhook-example/golang
+module github.com/jmhobbs/chromatic-signed-webhook-examples/golang
 
 go 1.16
 
