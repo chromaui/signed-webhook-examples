@@ -9,20 +9,21 @@ const issuer = process.env.JWT_ISSUER || 'chromatic';
 
 app.use(express.text());
 
-app.post('/unsigned', (req, res) => {
-  console.log(`${req.ip} -> /unsigned`);
-  console.log(req.body);
-  res.send('OK')
-})
-
-app.post('/signed', (req, res) => {
+app.post('/', (req, res) => {
   console.log(`${req.ip} -> /signed`);
+
+  const header = req.header('X-Webhook-Signature')
+  if(!header) {
+    console.log('❌ X-Webhook-Signature header not present');
+    res.status(401).send('Unauthorized');
+    return;
+  }
 
   let decoded;
   let expectedSha256;
 
   try {
-    decoded = jwt.decode(req.header('X-Webhook-Signature'), secret, false, 'HS256')
+    decoded = jwt.decode(header, secret, false, 'HS256')
     expectedSha256 = createHash('sha256').update(req.body).digest();
   } catch(err) {
     console.log(`❌ Could not decode JWT: ${err}`);

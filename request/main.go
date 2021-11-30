@@ -17,7 +17,7 @@ func main () {
 	var (
 		secret *string = flag.String("secret", "-default-secret--default-secret-", "JWT Secret")
 		iss *string = flag.String("iss", "chromatic", "Issuer expected in JWT")
-		address *string = flag.String("url", "http://localhost:4321/signed", "URL to request")
+		address *string = flag.String("url", "http://localhost:4321/", "URL to request")
 		badHash *bool = flag.Bool("bad-hash", false, "Tweak the body has to be incorrect")
 	)
 	flag.Parse()

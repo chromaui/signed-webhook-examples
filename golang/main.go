@@ -26,21 +26,7 @@ func main () {
 	)
 	flag.Parse()
 
-	http.HandleFunc("/unsigned", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("UNSIGNED")
-		body, err := io.ReadAll(r.Body)
-		if err != nil {
-			log.Printf("error reading request body: %v", err)
-			http.Error(w, err.Error(), 500)
-			return
-		}
-		defer r.Body.Close()
-		log.Println(string(body))
-		w.Write([]byte{'O','K'})
-	})
-
-	http.HandleFunc("/signed", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("SIGNED")
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		signature := r.Header.Get("X-Webhook-Signature")
 		if signature == "" {
 			log.Println("No X-Webhook-Signature on request.")

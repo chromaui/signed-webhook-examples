@@ -8,7 +8,7 @@ Each is organized under the language used, and attempts to use common packages t
 
 This is a CLI tool written in Go which is capable of making signed requests in the same manner as Chromatic.
 
-By default, you can use it against your example servers with no flags, as the defaults are shared across all exmaple servers.
+By default, you can use it against your example servers with no flags, as the defaults are shared across all example servers.
 
 ## Demo
 

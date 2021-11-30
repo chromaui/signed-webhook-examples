@@ -5,10 +5,13 @@ require 'sinatra'
 
 logger = Logger.new(STDERR)
 
+port = (ENV['PORT'] || 4321).freeze
 issuer = (ENV['JWT_ISSUER'] || 'chromatic').freeze
 secret = (ENV['WEBHOOK_SECRET'] || '-default-secret--default-secret-').freeze
 
-post '/signed' do
+set :port, port
+
+post '/' do
   token = request.env['HTTP_X_WEBHOOK_SIGNATURE']
   unless token
     logger.warn "❌ X-Webhook-Signature header not present"
