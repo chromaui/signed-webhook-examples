@@ -1,6 +1,6 @@
 # chromatic-signed-webhook-examples
 
-These are example implementations of validating the X-Signed-Webhook header from Chromatic.
+These are example implementations of validating the `X-Webhook-Signature` header from Chromatic.
 
 Each is organized under the language used, and attempts to use common packages to give a complete example.
 
@@ -24,7 +24,7 @@ This JWT will always be `HS256`, and use the secret key you coordinate with Chro
 
 ## Verification
 
-  1. Check for, and retrieve the `X-Signed-Webhook` header value
+  1. Check for, and retrieve the `X-Webhook-Signature` header value
   1. Decode this JWT using the secret key
   1. Check that `iat` is recent (as determined by your threat model)
   1. Read the POST body, and generate a SHA256 hex digest
