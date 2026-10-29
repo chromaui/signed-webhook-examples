@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "jwt-simple": "^0.5.6"
   }
